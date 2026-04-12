@@ -1,0 +1,335 @@
+/* =========================================
+   1. IMPORT & FONTS
+========================================= */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face { font-family: "Inter-Regular"; src: local("Inter-Regular"); }
+@font-face { font-family: "Khmer-Regular"; src: local("Khmer-Regular"); }
+@font-face { font-family: "Kumar One-Regular"; src: local("Kumar One-Regular"); }
+@font-face { font-family: "Martel-Regular"; src: local("Martel-Regular"); }
+@font-face { font-family: "Kurale-Regular"; src: local("Kurale-Regular"); }
+
+/* =========================================
+   2. BASE STYLES & RESET
+========================================= */
+* { 
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body { 
+  /* Menggunakan Inter sebagai font utama, dengan fallback ke Segoe UI jika font lokal tidak ada */
+  font-family: "Inter-Regular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  background-color: #f5f8fa; 
+  color: #333; 
+  line-height: 1.6; 
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+/* =========================================
+   3. DESKTOP LAYOUT GRID
+========================================= */
+.desktop-container {
+  display: grid;
+  grid-template-columns: 250px 1fr 350px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* =========================================
+   4. SIDEBAR KIRI (NAVIGASI)
+========================================= */
+.sidebar-left {
+  position: sticky;
+  top: 20px;
+  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo-container img { 
+  max-width: 250px; 
+  margin-top: -30px;
+  margin-bottom: 10px; 
+}
+
+.side-nav { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+}
+
+.side-nav a, .side-nav button {
+  display: flex; 
+  align-items: center; 
+  gap: 15px; 
+  padding: 12px 20px;
+  color: #1a1a1a; 
+  font-size: 16px; 
+  font-weight: 600;
+  border-radius: 30px; 
+  border: none; 
+  background: transparent; 
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.side-nav a:hover, .side-nav button:hover { 
+  background: #e1e8ed; 
+}
+
+.side-nav img { 
+  width: 24px !important; 
+  height: 24px !important; 
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  margin: 0;
+}
+
+.btn-post { 
+  background: #1d9bf0 !important; 
+  color: white !important; 
+  justify-content: center; 
+  margin-top: 10px;
+}
+
+/* =========================================
+   5. KONTEN UTAMA (TENGAH)
+========================================= */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Search Bar */
+.search-section {
+  display: flex; 
+  align-items: center; 
+  background: white; 
+  padding: 12px 20px;
+  border-radius: 30px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+  gap: 10px;
+}
+
+.hot-topic-header img {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  .comment-count img {
+    width: 18px !important;
+    height: 18px !important;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  /* Ini untuk mengunci ukuran 3 ikon komentar di bagian Trending */
+.list-item-meta img {
+    width: 16px !important;       /* Kunci lebarnya, pakai !important */
+    height: 16px !important;      /* Kunci tingginya, harus kotak sempurna */
+    
+    object-fit: contain;          /* Supaya gambar aslinya tidak gepeng */
+    flex-shrink: 0;               /* Supaya tidak terhimpit teks angka */
+    margin-right: 5px;            /* Beri sedikit jarak ke angka di sebelahnya */
+    
+    display: inline-block;        /* Supaya sejajar dengan teks angka */
+    vertical-align: middle;       /* Supaya posisinya rata tengah secara vertikal */
+  }
+
+.search-section input { 
+  border: none; 
+  outline: none; 
+  width: 100%; 
+  font-family: inherit;
+  font-size: 15px; 
+}
+.search-section img {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+/* Card Umum (Topik Hangat & Pendapat) */
+.card {
+  background: white; 
+  border-radius: 16px; 
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.hot-topic-header { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  color: #e0245e; 
+  font-weight: bold; 
+  margin-bottom: 10px;
+}
+
+.hot-topic-title { 
+  font-family: "Khmer-Regular", inherit;
+  font-size: 20px; 
+  font-weight: 800; 
+  margin-bottom: 15px; 
+}
+
+.hot-topic-footer { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.comment-count { 
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+  color: #657786; 
+}
+
+.btn-join { 
+  background: #1d9bf0; 
+  color: white; 
+  border: none; 
+  padding: 8px 16px; 
+  border-radius: 20px; 
+  cursor: pointer; 
+  font-weight: bold;
+}
+
+/* Opinion Card */
+.opinion-heading {
+  font-family: "Kumar One-Regular", inherit;
+  font-size: 18px; 
+  margin-bottom: 15px;
+}
+
+.opinion-card { 
+  display: flex; 
+  gap: 15px; 
+  align-items: flex-start; 
+}
+
+.opinion-card img.avatar { 
+  width: 48px; 
+  height: 48px; 
+  border-radius: 50%; 
+  background: #ccc; 
+}
+
+.opinion-content h3 { 
+  font-family: "Martel-Regular", inherit;
+  font-size: 16px; 
+  margin-bottom: 5px; 
+}
+
+.opinion-content p { 
+  font-family: "Martel-Regular", inherit;
+  color: #333; 
+  margin-bottom: 10px; 
+}
+
+/* =========================================
+   6. SIDEBAR KANAN (TRENDING & BERITA)
+========================================= */
+.sidebar-right {
+  position: sticky;
+  top: 20px;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-card { 
+  background: white; 
+  border-radius: 16px; 
+  padding: 20px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+}
+
+.right-card h2 { 
+  font-family: "Kumar One-Regular", inherit;
+  font-size: 18px; 
+  margin-bottom: 15px; 
+  border-bottom: 1px solid #eee; 
+  padding-bottom: 10px; 
+}
+
+.list-item { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-bottom: 15px; 
+}
+
+.list-item-content p { 
+  font-family: "Martel-Regular", inherit;
+  font-size: 14px; 
+  font-weight: 600; 
+}
+
+.list-item-meta { 
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+  font-size: 12px; 
+  color: #657786; 
+}
+
+.news-item { 
+  margin-bottom: 15px; 
+}
+
+.news-item span { 
+  font-family: "Kurale-Regular", inherit;
+  font-size: 12px; 
+  color: #1d9bf0; 
+  font-weight: bold; 
+}
+
+.news-item p { 
+  font-family: "Martel-Regular", inherit;
+  font-size: 14px; 
+  margin-top: 5px; 
+}
+
+/* =========================================
+   7. RESPONSIVE / TABLET VIEW
+========================================= */
+@media (max-width: 992px) {
+  .desktop-container { 
+    grid-template-columns: 80px 1fr; 
+  }
+  .sidebar-right { 
+    display: none; 
+  }
+  .side-nav span { 
+    display: none; 
+  }
+  .logo-container img { 
+    display: none; 
+  }
+}

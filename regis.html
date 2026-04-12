@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Desktop Version</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- PERUBAHAN DI SINI: Ukuran kotak disamakan dengan Login --- */
+        .main-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 450px; /* Dikecilkan agar ramping seperti login */
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            
+            display: flex;
+            flex-direction: column; /* Diubah jadi atas-bawah */
+            gap: 20px;
+            align-items: center;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 120px; /* Dikecilkan sedikit biar proporsional */
+            height: 120px;
+        }
+
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #eef1f4;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .avatar-placeholder i {
+            font-size: 80px;
+            color: #bfc5cd;
+            margin-bottom: -10px;
+        }
+
+        .camera-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .camera-icon i {
+            font-size: 14px;
+            color: #3b82f6;
+        }
+
+        .profile-text {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .form-side {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header h1 {
+            font-family: 'Kumar One', cursive; 
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            text-align: center;
+}
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-family: 'Martel', serif; 
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 20px;
+            background-color: #f8fafc;
+            border: 1.5px solid transparent;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #1e293b;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            background-color: #ffffff;
+            border-color: #000000;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-wrapper input {
+            padding-left: 48px;
+            padding-right: 48px;
+        }
+
+        .prefix-icon {
+            position: absolute;
+            left: 18px;
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .suffix-icon {
+            position: absolute;
+            right: 18px;
+            color: #94a3b8;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .save-btn {
+            width: 100%; /* Tombol dibikin memanjang (full width) */
+            margin-top: 10px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .save-btn:hover {
+            opacity: 0.9;
+        }
+
+        .save-btn:active {
+            transform: scale(0.98);
+        }
+
+        .footer-link {
+            font-family: 'Martel', serif; /* Tambahkan ini */
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .footer-link a {
+            color: #1a1a1a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="profile-section">
+            <div class="avatar-wrapper">
+                <div class="avatar-placeholder">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="camera-icon">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+            </div>
+            <span class="profile-text">Upload Foto</span>
+        </div>
+
+        <div class="form-side">
+            <div class="header">
+                <h1>Register</h1>
+            </div>
+
+            <form class="form-container" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter your Name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter your Email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Address</label>
+                    <input type="text" placeholder="Enter your Address" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="password-wrapper">
+                        <i class="fa-solid fa-lock prefix-icon"></i>
+                        <input type="password" placeholder="Password" required>
+                        <i class="fa-solid fa-eye-slash suffix-icon"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="save-btn">Register</button>
+            </form>
+
+            <div class="footer-link">
+                Sudah punya akun? <a href="index.html">Login di sini</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
