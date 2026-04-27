@@ -1,6 +1,5 @@
-/* =========================================
-   1. IMPORT & FONTS
-========================================= */
+/* 1. IMPORT & FONTS
+*/
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
 @font-face { font-family: "Inter-Regular"; src: local("Inter-Regular"); }
@@ -9,9 +8,8 @@
 @font-face { font-family: "Martel-Regular"; src: local("Martel-Regular"); }
 @font-face { font-family: "Kurale-Regular"; src: local("Kurale-Regular"); }
 
-/* =========================================
-   2. BASE STYLES & RESET
-========================================= */
+/* 2. BASE STYLES & RESET
+ */
 * { 
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box; 
@@ -25,7 +23,6 @@ html, body {
 }
 
 body { 
-  /* Menggunakan Inter sebagai font utama, dengan fallback ke Segoe UI jika font lokal tidak ada */
   font-family: "Inter-Regular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   background-color: #f5f8fa; 
   color: #333; 
@@ -41,9 +38,8 @@ button:focus-visible {
   outline: -webkit-focus-ring-color auto 5px !important;
 }
 
-/* =========================================
-   3. DESKTOP LAYOUT GRID
-========================================= */
+/* 3. DESKTOP LAYOUT GRID
+*/
 .desktop-container {
   display: grid;
   grid-template-columns: 250px 1fr 350px;
@@ -54,9 +50,8 @@ button:focus-visible {
   padding: 20px;
 }
 
-/* =========================================
-   4. SIDEBAR KIRI (NAVIGASI)
-========================================= */
+/* 4. SIDEBAR KIRI (NAVIGASI)
+ */
 .sidebar-left {
   position: sticky;
   top: 20px;
@@ -113,9 +108,9 @@ button:focus-visible {
   margin-top: 10px;
 }
 
-/* =========================================
+/*
    5. KONTEN UTAMA (TENGAH)
-========================================= */
+*/
 .main-content {
   display: flex;
   flex-direction: column;
@@ -138,27 +133,24 @@ button:focus-visible {
     height: 28px !important;
     object-fit: contain;
     flex-shrink: 0;
-  }
+}
   
-  .comment-count img {
+.comment-count img {
     width: 18px !important;
     height: 18px !important;
     object-fit: contain;
     flex-shrink: 0;
-  }
+}
 
-  /* Ini untuk mengunci ukuran 3 ikon komentar di bagian Trending */
 .list-item-meta img {
-    width: 16px !important;       /* Kunci lebarnya, pakai !important */
-    height: 16px !important;      /* Kunci tingginya, harus kotak sempurna */
-    
-    object-fit: contain;          /* Supaya gambar aslinya tidak gepeng */
-    flex-shrink: 0;               /* Supaya tidak terhimpit teks angka */
-    margin-right: 5px;            /* Beri sedikit jarak ke angka di sebelahnya */
-    
-    display: inline-block;        /* Supaya sejajar dengan teks angka */
-    vertical-align: middle;       /* Supaya posisinya rata tengah secara vertikal */
-  }
+    width: 16px !important;       
+    height: 16px !important;      
+    object-fit: contain;          
+    flex-shrink: 0;              
+    margin-right: 5px;           
+    display: inline-block;        
+    vertical-align: middle;       
+}
 
 .search-section input { 
   border: none; 
@@ -167,12 +159,14 @@ button:focus-visible {
   font-family: inherit;
   font-size: 15px; 
 }
+
 .search-section img {
     width: 24px !important;
     height: 24px !important;
     object-fit: contain;
     flex-shrink: 0;
-  }
+}
+
 /* Card Umum (Topik Hangat & Pendapat) */
 .card {
   background: white; 
@@ -244,6 +238,7 @@ button:focus-visible {
   font-family: "Martel-Regular", inherit;
   font-size: 16px; 
   margin-bottom: 5px; 
+  font-weight: bold;
 }
 
 .opinion-content p { 
@@ -252,9 +247,8 @@ button:focus-visible {
   margin-bottom: 10px; 
 }
 
-/* =========================================
-   6. SIDEBAR KANAN (TRENDING & BERITA)
-========================================= */
+/* 6. SIDEBAR KANAN (TRENDING & BERITA)
+ */
 .sidebar-right {
   position: sticky;
   top: 20px;
@@ -267,6 +261,7 @@ button:focus-visible {
 .right-card { 
   background: white; 
   border-radius: 16px; 
+  font-weight: bold;
   padding: 20px; 
   box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
 }
@@ -275,6 +270,7 @@ button:focus-visible {
   font-family: "Kumar One-Regular", inherit;
   font-size: 18px; 
   margin-bottom: 15px; 
+  font-weight: bold;
   border-bottom: 1px solid #eee; 
   padding-bottom: 10px; 
 }
@@ -288,6 +284,7 @@ button:focus-visible {
 .list-item-content p { 
   font-family: "Martel-Regular", inherit;
   font-size: 14px; 
+  font-weight: normal !important;
   font-weight: 600; 
 }
 
@@ -314,22 +311,144 @@ button:focus-visible {
   font-family: "Martel-Regular", inherit;
   font-size: 14px; 
   margin-top: 5px; 
+  font-weight: normal !important;
 }
 
-/* =========================================
-   7. RESPONSIVE / TABLET VIEW
-========================================= */
+/* 7. RESPONSIVE / TABLET VIEW
+*/
+/* 7. RESPONSIVE / TABLET VIEW
+*/
 @media (max-width: 992px) {
   .desktop-container { 
     grid-template-columns: 80px 1fr; 
   }
+  
   .sidebar-right { 
     display: none; 
   }
-  .side-nav span { 
-    display: none; 
+  
+  /* Sembunyikan teks menu dan logo */
+  .side-nav span, .side-nav p { 
+    display: none !important; 
   }
+  
   .logo-container img { 
     display: none; 
+  }
+
+  /* --- TAMBAHAN BARU UNTUK MERAPIKAN IKON --- */
+  
+  /* Posisikan ikon persis di tengah (center) kolom 80px */
+  .side-nav a, .side-nav button {
+    padding: 12px;
+    justify-content: center; 
+    margin: 0 auto; /* Supaya elemennya ke tengah */
+    width: 50px; /* Samakan lebarnya biar rapi kalau di-hover */
+    height: 50px;
+    border-radius: 50%; /* Bikin efek hover jadi bulat */
+  }
+
+  /* Sulap tombol biru (Post) jadi bulat sempurna ala Twitter/X di iPad */
+  .btn-post {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  /* Pastikan ikon di dalam tombol tidak lari-lari */
+  .side-nav img {
+    margin: 0 !important;
+  }
+}
+
+/* 8. RESPONSIVE / MOBILE VIEW (HP)
+*/
+@media (max-width: 768px) {
+  /* Ubah layout utama jadi 1 kolom bertumpuk */
+  .desktop-container { 
+    display: flex; 
+    flex-direction: column;
+    padding: 10px 10px 80px 10px; /* Padding bawah agar konten tidak tertutup navigasi */
+    gap: 15px;
+  }
+
+  .sidebar-right {
+    display: flex;         /* Memunculkan kembali sidebar yang disembunyikan */
+    position: static;      /* Mematikan efek 'sticky' (melayang) dari versi desktop */
+    width: 100%;           /* Lebarnya dibuat penuh menyesuaikan layar HP */
+    height: auto;
+    margin-top: 10px;      /* Jarak dari 'Pendapat Pilihan' ke bagian ini */
+  }
+
+  /* Opsional: Sesuaikan ukuran teks di sidebar kanan agar tidak kebesaran di HP */
+  .right-card {
+    padding: 15px;
+  }
+  
+  .right-card h2 {
+    font-size: 16px;
+  }
+
+
+  /* Sulap sidebar kiri jadi Bottom Navigation Bar melayang */
+  .sidebar-left { 
+    position: fixed;
+    top: auto; /* <--- INI KUNCI FIX-NYA: Mematikan efek top: 20px dari desktop */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    
+    /* Tambahan agar isi sidebar sejajar rapi ke samping */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  /* Jejerkan menu ke samping */
+  .side-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .side-nav a, .side-nav button {
+    padding: 10px;
+    margin: 0;
+  }
+
+  /* Sembunyikan elemen yang tidak perlu di layar HP */
+  .btn-post, .logo-container {
+    display: none !important; 
+  }
+
+  /* Penyesuaian ukuran elemen di dalam main-content agar pas di layar HP */
+  .search-section {
+    padding: 10px 15px;
+  }
+
+  .card, .opinion-card {
+    padding: 15px;
+  }
+
+  .hot-topic-title {
+    font-size: 18px; 
+  }
+
+  .opinion-heading {
+    font-size: 16px;
   }
 }
