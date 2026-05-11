@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Ngobrol.in - Tulis Postingan</title>
+  <link rel="stylesheet" href="rv.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="desktop-container">
+    
+    <aside class="sidebar-left">
+      <div class="logo-container">
+        <img src="img/logo.png" alt="Ngobrol.in logo" />
+      </div>
+      <nav class="side-nav">
+        <a href="irenerv.html">
+          <img src="img/home.png" alt="Home" style="width: 24px; height: 24px; object-fit: contain;" />
+          <span>Home</span>
+        </a>
+        <a href="ekspor.html">
+          <img src="img/search.png" alt="Eksplor" style="width: 24px; height: 24px; object-fit: contain;" />
+          <span>Eksplor</span>
+        </a>
+        <a href="bookmark.html">
+          <img src="img/save.png" alt="Tersimpan" style="width: 24px; height: 24px; object-fit: contain;" />
+          <span>Tersimpan</span>
+        </a>
+        <a href="profil.html">
+          <img src="img/user.png" alt="Profil" style="width: 24px; height: 24px; object-fit: contain;" />
+          <span>Profil</span>
+        </a>
+        <a href="tulis.html" style="text-decoration: none;">
+          <button class="btn-post" type="button">
+            <span>+ Buat Postingan</span>
+          </button>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      
+      <section class="card write-section">
+        
+        <div class="write-header">
+          <a href="irenerv.html" class="back-btn"><i class="fa-solid fa-chevron-left"></i></a>
+          <h1>TULIS</h1>
+        </div>
+
+        <div class="write-title-area">
+          <textarea class="title-input" placeholder="Judul postingan di sini... (Misal: Messi akan selalu lebih baik dari Ronaldo?)">Messi akan selalu lebih baik dari Ronaldo?</textarea>
+          
+          <div class="write-image-preview">
+            <img src="img/mess.jpg" alt="Preview Gambar" onerror="this.src='https://via.placeholder.com/600x300?text=Preview+Gambar'" />
+          </div>
+        </div>
+
+        <div class="write-body-area">
+          <textarea class="body-input" placeholder="Tulis pendapatmu...">Saya tidak sepenuhnya setuju. Messi memang punya bakat alami yang luar biasa, tapi Ronaldo menunjukkan konsistensi dan kerja keras yang jarang dimiliki pemain lain. Keduanya hebat dengan caranya masing-masing.</textarea>
+        </div>
+
+        <div class="write-footer">
+          <div class="write-category">
+            <select class="cat-select-dropdown">
+              <option value="" disabled selected>[ PILIH KATEGORI ▼ ]</option>
+              <option value="hiburan">Hiburan</option>
+              <option value="sosial">Sosial</option>
+              <option value="opini">Opini</option>
+              <option value="kpop">K-Pop</option>
+              <option value="olahraga">Olahraga</option>
+              <option value="teknologi">Teknologi</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
+          </div>
+
+          <div class="write-actions-btn">
+            <button id="btnPost" class="btn-outline">POST DISKUSI</button>
+            <a href="draft.html" class="btn-outline">DRAFT</a>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <aside class="sidebar-right">
+      
+        <div class="right-card" aria-label="Lagi Ramai Dibahas">
+          <h2>Lagi Ramai Dibahas</h2>
+          <a href="yeripost.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="list-item">
+              <div class="list-item-content">
+                <p>Bisakah Red Velvet Comback Di 2026</p>
+              </div>
+              <div class="list-item-meta">
+                <img src="img/comment.png" alt="comment icon" style="width: 16px;" /> 3246
+              </div>
+            </div>
+          </a>
+          <div class="list-item">
+            <div class="list-item-content">
+              <p>Cancel culture makin berlebihan?</p>
+            </div>
+            <div class="list-item-meta">
+              <img src="img/comment.png" alt="comment icon" style="width: 16px;" /> 2345
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="list-item-content">
+              <p>Fans atau tekanan publik</p>
+            </div>
+            <div class="list-item-meta">
+              <img src="img/comment.png" alt="comment icon" style="width: 16px;" /> 6787
+            </div>
+          </div>
+        </div>
+  
+        <div class="right-card" aria-label="Terbaru" style="margin-top: 20px;">
+          <h2>Terbaru</h2>
+          <div class="news-item">
+            <span>[Hiburan] Idol X klarifikasi</span>
+            <p>rumor yang beredar terkait perilisan album terbarunya...</p>
+          </div>
+          <div class="news-item">
+            <span>[Sosial] Budaya cancel di</span>
+            <p>media sosial meningkat drastis di kalangan remaja...</p>
+          </div>
+          <div class="news-item">
+            <span>[Opini] Polisi seharusnya</span>
+            <p>minimal lulusan S1 untuk meningkatkan kualitas pelayanan?</p>
+          </div>
+        </div>
+  
+      </aside>
+  
+    </div>
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+          <button class="modal-close-btn" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+          
+          <div class="modal-success-icon">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          
+          <h2 class="modal-title">Diskusimu sudah mulai.<br>Siap adu opini?</h2>
+          <p class="modal-desc">Topikmu sedang ditinjau</p>
+          
+          <a href="pending.html" class="modal-action-btn">Lihat diskusi</a>
+        </div>
+      </div>
+    
+      <script>
+        const btnPost = document.getElementById('btnPost');
+        const modal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+    
+        // 1. Munculkan modal saat "POST DISKUSI" diklik
+        btnPost.addEventListener('click', function(e) {
+          e.preventDefault(); 
+          modal.classList.add('show');
+        });
+    
+        // 2. Tutup modal saat tombol "X" diklik
+        closeModal.addEventListener('click', function() {
+          modal.classList.remove('show');
+        });
+    
+        // 3. Tutup modal kalau user klik sembarang di area gelap luar kotak
+        window.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.classList.remove('show');
+          }
+        });
+      </script>
+  
+  </body>
+  </html>
