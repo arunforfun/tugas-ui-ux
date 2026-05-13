@@ -62,8 +62,8 @@ button:focus-visible {
 }
 
 .logo-container img { 
-  max-width: 250px; 
-  margin-top: -30px;
+  max-width: 200px; 
+  margin-top: -10px;
   margin-bottom: 10px; 
 }
 
@@ -451,4 +451,109 @@ button:focus-visible {
   .opinion-heading {
     font-size: 16px;
   }
+}
+/* Efek Hover pada Kartu Pendapat Pilihan */
+.opinion-card {
+  transition: background-color 0.2s, transform 0.2s;
+  border-radius: 12px;
+  padding: 10px;
+  margin: -10px; /* Kompensasi padding agar sejajar */
+}
+
+.opinion-card:hover {
+  background-color: #f5f8fa;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   MODAL POPUP (KOTAK PESAN PENDAPAT)
+========================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Layar belakang jadi gelap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  
+  /* Efek disembunyikan dulu */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Muncul! */
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  
+  /* Efek animasi kotak melompat naik sedikit */
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.show .modal-box {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f0f2f5;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #e1e8ed;
+}
+
+.opinion-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.opinion-modal-footer {
+  margin-top: 25px;
+  border-top: 1px solid #f0f2f5;
+  padding-top: 15px;
+  display: flex;
+  gap: 25px;
+  color: #657786;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.opinion-modal-footer .action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.opinion-modal-footer .action-btn:hover {
+  color: #1d9bf0;
 }
