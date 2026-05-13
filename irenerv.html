@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="utf-8" />
-  <title>Ngobrol.in - Home (Desktop Version)</title>
-  
-  <link rel="stylesheet" href="suho.css" />
-</head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Ngobrol.in - Home (Desktop Version)</title>
+    
+    <!-- TAMBAHKAN BARIS INI SUPAYA IKONNYA MUNCUL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="suho.css" />
+  </head>
 <body>
 
   <div class="desktop-container">
     
     <aside class="sidebar-left">
-       <div class="logo-container">
+      <div class="logo-container">
         <!-- Bungkus gambar pakai tag <a> -->
         <a href="irenerv.html">
           <img src="img/logo.png" alt="Ngobrol.in logo" />
@@ -62,13 +65,14 @@
             <img class="uiw-message" src="img/comment.png" alt="comment icon" />
             <span>928 Komentar</span>
           </div>
-          <button class="btn-join" type="button">Ikut Ngobrol</button>
+          <a href="realmadrid.html" class="btn-join">Ikut Ngobrol</a>
         </div>
       </section>
 
       <section class="card" aria-label="Pendapat Pilihan">
         <h2 class="opinion-heading">Pendapat Pilihan</h2>
-        <article class="opinion-card">
+        <!-- Tambahkan ID dan ubah sedikit agar terlihat bisa diklik -->
+        <article class="opinion-card" id="opinionTrigger" style="cursor: pointer;">
           <img class="avatar" src="img/mingyu.jpeg" alt="user avatar" />
           <div class="opinion-content">
             <h3>KIMING HEBAT</h3>
@@ -134,6 +138,58 @@
     </aside>
 
   </div>
+  <!-- ================= KOTAK POPUP (MODAL) PENDAPAT ================= -->
+  <div class="modal-overlay" id="opinionModal">
+    <div class="modal-box opinion-modal-box">
+      <!-- Tombol Close (X) -->
+      <button class="modal-close-btn" id="closeOpinionModal"><i class="fa-solid fa-xmark"></i></button>
+      
+      <!-- Isi Detail Pop-up -->
+      <div class="opinion-modal-header">
+        <img class="avatar" src="img/mingyu.jpeg" alt="user avatar" style="width: 50px; height: 50px;" />
+        <div>
+          <h3 style="font-family: 'Inter-Regular', sans-serif; font-weight: 900; font-size: 18px; color: #000;">KIMING HEBAT</h3>
+          <span style="font-size: 13px; color: #657786;">@kiming_hebat • 2 jam yang lalu</span>
+        </div>
+      </div>
+      
+      <div class="opinion-modal-body">
+        <p style="font-family: 'Inter-Regular', sans-serif; font-size: 16px; line-height: 1.6; color: #333; margin-top: 20px;">
+          always nice try never you did well. Walaupun kadang hasil tidak sesuai dengan harapan, mengapresiasi usaha sendiri itu penting banget buat mental kita ke depannya! Tetap semangat!
+        </p>
+      </div>
+
+      <div class="opinion-modal-footer">
+        <div class="action-btn"><img src="img/comment.png" style="width: 18px;" /> 167 Balasan</div>
+        <div class="action-btn"><i class="fa-regular fa-heart"></i> 452 Suka</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    const opinionTrigger = document.getElementById('opinionTrigger');
+    const opinionModal = document.getElementById('opinionModal');
+    const closeOpinionModal = document.getElementById('closeOpinionModal');
+
+    // 1. Munculkan modal saat Kartu Pendapat diklik
+    opinionTrigger.addEventListener('click', function() {
+      opinionModal.classList.add('show');
+    });
+
+    // 2. Tutup modal saat tombol "X" diklik
+    closeOpinionModal.addEventListener('click', function() {
+      opinionModal.classList.remove('show');
+    });
+
+    // 3. Tutup modal kalau user klik area gelap di luar pop-up
+    window.addEventListener('click', function(e) {
+      if (e.target === opinionModal) {
+        opinionModal.classList.remove('show');
+      }
+    });
+  </script>
 
 </body>
 </html>
